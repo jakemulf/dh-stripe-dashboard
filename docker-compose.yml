@@ -10,6 +10,7 @@ services:
       - api-cache:/cache
     environment:
       - JAVA_TOOL_OPTIONS=-Xmx4g -Ddeephaven.console.type=python -Ddeephaven.application.dir=/data/app.d
+      - STRIPE_API_KEY=${STRIPE_API_KEY}
 
   web:
     image: ghcr.io/deephaven/web:${VERSION:-latest}

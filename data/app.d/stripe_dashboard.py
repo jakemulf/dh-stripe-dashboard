@@ -4,12 +4,14 @@ stripe_dashboard.py
 Creates a simple dashboard to display data from Stripe
 """
 import stripe
-stripe.api_key = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
 
 from deephaven import empty_table
 from deephaven.plot.figure import Figure
 from deephaven.time import millis_to_datetime
 
+import os
+
+stripe.api_key = os.environ['STRIPE_API_KEY']
 
 def date_time_converter(charge):
     return millis_to_datetime(charge["created"] * 1000)
